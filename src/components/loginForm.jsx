@@ -20,8 +20,8 @@ class LoginForm extends Form {
 			<Header text="Login" image={loginImg}/>
 			<div className="col-md-3 mx-auto">
 				<form onSubmit={this.handleSubmit}>
-					{this.renderInput("username", "Username")}
-					{this.renderInput("password", "Password")}
+					{this.renderInput("username", "Username", "text")}
+					{this.renderInput("password", "Password", "password")}
 					{this.renderButton("Login")}
 				</form>
 			</div>
