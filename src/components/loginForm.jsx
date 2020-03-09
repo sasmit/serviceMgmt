@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../common/header';
+import Footer from '../common/footer';
 import Form from '../common/form';
 import loginImg from "../images/login.svg";
 
@@ -24,9 +25,11 @@ class LoginForm extends Form {
 					{this.renderButton("Login")}
 				</form>
 			</div>
-			<div className="footer text-center">
-				<p>Not yet register, please click <Link to="/register">here</Link>.</p>
-			</div>
+			<Footer
+				text="Not yet register, please click "
+				path="/register"
+				linkText="here"
+			/>
 		</div>
 		);
 	}
