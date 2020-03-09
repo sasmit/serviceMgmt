@@ -9,7 +9,8 @@ function App() {
 		<React.Fragment>
 			<main className="container">
 				<Switch>
-					<Route path='/login' component={RegisterForm}/>
+					<Route path='/login' component={LoginForm}/>
+                    <Route path='/register' component={RegisterForm}/>
 					<Redirect exact from="/" to="/login" />
 				</Switch>
 			</main>

@@ -24,6 +24,9 @@ class LoginForm extends Form {
 					{this.renderButton("Login")}
 				</form>
 			</div>
+			<div className="footer text-center">
+				<p>Not yet register, please click <Link to="/register">here</Link>.</p>
+			</div>
 		</div>
 		);
 	}
