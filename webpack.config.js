@@ -19,8 +19,15 @@ module.exports = {
                 loader: "style-loader!css-loader"
             },
             {
-                test: /\.svg$/,
-                loader: 'svg-inline-loader'
+                test: /\.(png|jpg|gif|svg)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.html$/,
