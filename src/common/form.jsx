@@ -2,21 +2,17 @@ import React, { Component } from 'react';
 import Input from './input';
 
 class Form extends Component {
-    state = {
-        data: {}
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: {}
+        }
     }
-
-    handleSubmit = e => {
-		e.preventDefault();
-
-		console.log("Submitted.");
-	};
-
     handleChange = ({ currentTarget: input }) => {
-		const data = {...this.state.data};
-		data[input.name] =input.value;
-		this.setState({data});
-	};
+        const data = { ...this.state.data };
+        data[input.name] = input.value;
+        this.setState({ data });
+    };
 
     renderButton = label => {
         return (
@@ -38,5 +34,5 @@ class Form extends Component {
 
 
 }
- 
+
 export default Form;
