@@ -18,9 +18,9 @@ class RegisterForm extends Form {
 			<Header text="Register" image={registerImg}/>
 			<div className="col-md-3 mx-auto">
 				<form onSubmit={this.handleSubmit}>
-					{this.renderInput("username", "Username")}
-					{this.renderInput("password", "Password")}
-					{this.renderInput("email", "Email")}
+					{this.renderInput("username", "Username", "text")}
+					{this.renderInput("password", "Password", "password")}
+					{this.renderInput("email", "Email", "text")}
 					{this.renderButton("Register")}
 				</form>
 			</div>
