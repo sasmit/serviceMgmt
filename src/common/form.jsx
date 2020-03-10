@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Input from './input';
+import DropDown from './dropdown';
 import '../styles/login.css';
 
 class Form extends Component {
@@ -25,6 +26,14 @@ class Form extends Component {
 		this.setState({ data });
 	};
 
+	handleSelect = (e) => {
+		console.log("option selected");
+		const data = {...this.state.data};
+		data.type = e.currentTarget.value;
+		this.setState({data});
+		console.log(data);
+	};
+
 	renderButton = label => {
 		return (
 			<button className="btn btn-primary align-md-center" onClick={this.routeChange}>{label}</button>
@@ -40,6 +49,19 @@ class Form extends Component {
 				label={label}
 				type={type}
 				onChange={this.handleChange}
+			/>
+		);
+	}
+
+	renderDropDown(option1, option2, option3) {
+		const { data } = this.state;
+		return (
+			<DropDown
+				option1={option1}
+				option2={option2}
+				option3={option3}
+				value ={data.type}
+				onChange={this.handleSelect}
 			/>
 		);
 	}

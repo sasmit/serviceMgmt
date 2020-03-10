@@ -12,7 +12,6 @@ class RegisterForm extends Form {
 	};
 
 	render() {
-
 		return (
 		<div>
 			<Header text="Register" image={registerImg}/>
@@ -21,6 +20,7 @@ class RegisterForm extends Form {
 					{this.renderInput("username", "Username", "text")}
 					{this.renderInput("password", "Password", "password")}
 					{this.renderInput("email", "Email", "text")}
+					{this.renderDropDown("Product Owner", "Customer", "Vender")}
 					{this.renderButton("Register")}
 				</form>
 			</div>
