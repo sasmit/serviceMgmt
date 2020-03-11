@@ -10,25 +10,30 @@ class Form extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
+
+		//username password validation
+		//if validated successfully, redirect to home page
+		//else popup message that wrong password
 	};
 
 	routeChange = () => {
-		if (this.state.data.type === "1") {
-			let path = '/ownerhome';
-			this.props.history.push(path);
-		} else if (this.state.data.type === "2") {
+		const data = this.state.data;
+		//this should be execute only when login/register happens
+		if (data.form === "login" || data.form === "register") {
+			if (data.type === "1") {
+				let path = '/ownerhome';
+				this.props.history.push(path);
+			} else if (data.type === "2") {
+				let path = '/userhome';
+				this.props.history.push(path);
+			} else if (data.type === "3") {
+				let path = '/vendorhome';
+				this.props.history.push(path);
+			}
+		} else if (data.form === "complaint") {
 			let path = '/userhome';
-			this.props.history.push(path);
-		} else if (this.state.data.type === "3") {
-			let path = '/vendorhome';
-			this.props.history.push(path);
+				this.props.history.push(path);
 		}
-	};
-
-	handleChange = ({ currentTarget: input }) => {
-		const data = { ...this.state.data };
-		data[input.name] = input.value;
-		this.setState({ data });
 	};
 
 	handleSelect = (e) => {
@@ -37,6 +42,12 @@ class Form extends Component {
 		data.type = e.currentTarget.value;
 		this.setState({data});
 		console.log(data);
+	};
+
+	handleChange = ({ currentTarget: input }) => {
+		const data = {...this.state.data};
+		data[input.name] =input.value;
+		this.setState({data});
 	};
 
 	renderButton = label => {
@@ -62,13 +73,11 @@ class Form extends Component {
 		);
 	}
 
-	renderDropDown(option1, option2, option3) {
+	renderDropDown(options) {
 		const { data } = this.state;
 		return (
 			<DropDown
-				option1={option1}
-				option2={option2}
-				option3={option3}
+				options={options}
 				value ={data.type}
 				onChange={this.handleSelect}
 			/>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DropDown = ({option1, option2, option3, value, onChange}) => {
+const DropDown = ({options, value, onChange}) => {
     return ( 
         <div className="input-group mb-3">
             <div className="input-group-prepend">
@@ -12,10 +12,11 @@ const DropDown = ({option1, option2, option3, value, onChange}) => {
                 value={value}
                 onChange={onChange}
             >
-                <option value="0">Choose...</option>
-                <option value="1">{option1}</option>
-                <option value="2">{option2}</option>
-                <option value="3">{option3}</option>
+                {
+                    options.map((option, index) => {
+                        return  <option key={index} value={index}>{option}</option>
+                    })
+                }
             </select>
         </div>
      );

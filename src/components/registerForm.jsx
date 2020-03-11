@@ -4,14 +4,18 @@ import Form from '../common/form';
 import registerImg from "../images/register.svg";
 
 class RegisterForm extends Form {
-	state = {
+
+	state ={
 		data: {
 			username: '',
-			password: ''
+			password: '',
+			type: 0,
+			form: "register"
 		}
 	};
 
 	render() {
+		const options = ["Choose...", "Product Owner", "Customer", "Vendor"];
 		return (
 		<div>
 			<Header text="Register" image={registerImg}/>
@@ -19,8 +23,8 @@ class RegisterForm extends Form {
 				<form onSubmit={this.handleSubmit}>
 					{this.renderInput("username", "Username", "text")}
 					{this.renderInput("password", "Password", "password")}
-					{this.renderInput("email", "Email", "text")}
-					{this.renderDropDown("Product Owner", "Customer", "Vender")}
+					{this.renderInput("email", "Email", "email")}
+					{this.renderDropDown(options)}
 					{this.renderButton("Register")}
 				</form>
 			</div>

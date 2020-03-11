@@ -12,15 +12,15 @@ class UserHomePage extends Component {
 				<div className="col">
 					<Card 
 						cardTitle="Welcome,"
-						cardMessage="some quick example text to build on the card title and make up the bulk of the card's content."
+						cardMessage="Do you have a Consumer Grievance? Please Raise your complaint by clicking create button."
 						button="CREATE"
 						link="/complaint"
 					/>
 				</div>
 				<div className="col">
 					<Card 
-						cardTitle="Welcome,"
-						cardMessage="some quick example text to build on the card title and make up the bulk of the card's content."
+						cardTitle="Hello,"
+						cardMessage="Want to know the status of your complained? click track button."
 						button="TRACK"
 						link="/usertracking"
 					/>
