@@ -16,8 +16,13 @@ class Form extends Component {
 		//username password validation
 		//if validated successfully, redirect to home page
 		//else popup message that wrong password
-		let path = '/userhome';
-		this.props.history.push(path);
+		if (this.state.data.type === "2") {
+			let path = '/userhome';
+			this.props.history.push(path);
+		} else if (this.state.data.type === "1") {
+			let path = '/complaint';
+			this.props.history.push(path);
+		}
 	}
 
 	handleChange = ({ currentTarget: input }) => {
