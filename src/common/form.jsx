@@ -13,17 +13,17 @@ class Form extends Component {
 	};
 
 	routeChange = () => {
-		//username password validation
-		//if validated successfully, redirect to home page
-		//else popup message that wrong password
-		if (this.state.data.type === "2") {
+		if (this.state.data.type === "1") {
+			let path = '/ownerhome';
+			this.props.history.push(path);
+		} else if (this.state.data.type === "2") {
 			let path = '/userhome';
 			this.props.history.push(path);
-		} else if (this.state.data.type === "1") {
-			let path = '/complaint';
+		} else if (this.state.data.type === "3") {
+			let path = '/vendorhome';
 			this.props.history.push(path);
 		}
-	}
+	};
 
 	handleChange = ({ currentTarget: input }) => {
 		const data = { ...this.state.data };
@@ -41,9 +41,13 @@ class Form extends Component {
 
 	renderButton = label => {
 		return (
-			<button className="btn btn-primary align-md-center" onClick={this.routeChange}>{label}</button>
+			<button 
+				className="btn btn-primary align-md-center"
+				onClick={this.routeChange}
+			>{label}
+			</button>
 		);
-	};
+	}
 
 	renderInput(name, label, type) {
 		const { data } = this.state;

@@ -13,6 +13,9 @@ class LoginForm extends Form {
 					<form onSubmit={this.handleSubmit}>
 						{this.renderInput("username", "Username", "text")}
 						{this.renderInput("password", "Password", "password")}
+						{/* currently login data is not available.
+							so for now adding dropdown to know the type of login. */}
+						{this.renderDropDown("Product Owner", "Customer", "Vender")}
 						{this.renderButton("Login")}
 					</form>
 				</div>

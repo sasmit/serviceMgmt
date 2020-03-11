@@ -21,8 +21,8 @@ class UserHomePage extends Component {
 					<Card 
 						cardTitle="Welcome,"
 						cardMessage="some quick example text to build on the card title and make up the bulk of the card's content."
-						button="CREATE"
-						link="/complaint"
+						button="TRACK"
+						link="/usertracking"
 					/>
 				</div>
 			</div>
