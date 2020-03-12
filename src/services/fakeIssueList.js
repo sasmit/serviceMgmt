@@ -119,6 +119,6 @@ export function saveIssueData(user) {
 
 export function deleteUserById(id) {
   let dataInDb = data.find(m => m._id === id);
-  data.splice(movies.indexOf(dataInDb), 1);
+  data.splice(data.indexOf(dataInDb), 1);
   return dataInDb;
 }
