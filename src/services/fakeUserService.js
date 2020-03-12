@@ -1,4 +1,4 @@
-import * as genresAPI from "./fakeGenreService";
+
 
 const data = [
   {
@@ -61,15 +61,15 @@ export function getData() {
   return data;
 }
 
-export function getData(id) {
+export function getDataById(id) {
   return data.find(m => m._id === id);
 }
 
 export function saveData(user) {
   let dataInDb = user.find(m => m._id === user._id) || {};
   dataInDb.username = user.username;
-  dataInDb.password = user.password;
-  dataInDb.type = user.type;
+  dataInDb.numberInStock = user.password;
+  dataInDb.dailyRentalRate = user.type;
 
   if (!dataInDb._id) {
     dataInDb._id = Date.now();
@@ -79,8 +79,8 @@ export function saveData(user) {
   return dataInDb;
 }
 
-export function deleteUSer(id) {
+export function deleteUser(id) {
   let dataInDb = data.find(m => m._id === id);
-  data.splice(movies.indexOf(dataInDb), 1);
+  data.splice(data.indexOf(dataInDb), 1);
   return dataInDb;
 }
