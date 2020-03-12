@@ -16,8 +16,7 @@ class Form extends Component {
 		//if validated successfully, redirect to home page
 		//else popup message that wrong password
 		const errors =  this.validate();
-		console.log(errors);
-		this.setState({ errors });
+		this.setState({ errors: errors || {} });
 		if (errors) return;
 	};
 
