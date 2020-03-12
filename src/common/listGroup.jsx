@@ -13,7 +13,7 @@ const ListGroup = ({issues}) => {
 									cardTitle={issue.issue}
 									cardMessage={issue.description}
 									button="status"
-									link="/complaint"
+									link="/usertracking"
 								/>
 							</td>
 						</tr>

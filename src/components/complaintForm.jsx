@@ -12,7 +12,8 @@ class ComplaintForm extends Form {
 			description: '',
 			type: 0,
             form: "complaint"
-		}
+		},
+		errors: {}
 	};
 
 	render() {
