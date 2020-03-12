@@ -68,8 +68,8 @@ export function getData(id) {
 export function saveData(user) {
   let dataInDb = user.find(m => m._id === user._id) || {};
   dataInDb.username = user.username;
-  dataInDb.numberInStock = user.password;
-  dataInDb.dailyRentalRate = user.type;
+  dataInDb.password = user.password;
+  dataInDb.type = user.type;
 
   if (!dataInDb._id) {
     dataInDb._id = Date.now();
