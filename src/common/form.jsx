@@ -62,7 +62,7 @@ class Form extends Component {
 			>{label}
 			</button>
 		);
-	}
+	};
 
 	renderInput(name, label, type) {
 		const { data , errors} = this.state;
