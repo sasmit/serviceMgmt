@@ -16,7 +16,10 @@ class VendorHomePage extends Component {
         fetch("http://10.12.131.32:3006", {
             mode: 'no-cors'
         })
-            .then(response => console.log('SUCCESS'))
+            .then(response => {
+                console.log('SUCCESS');
+                return response;
+            } )
             .then(data => console.log(data))
             .catch(error => console.log('ERROR in GET'));
     }
