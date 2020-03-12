@@ -5,7 +5,8 @@ import '../styles/login.css';
 
 class Form extends Component {
 	state = {
-		data: {}
+		data: {},
+		errors: {}
 	}
 
 	handleSubmit = e => {
@@ -14,6 +15,10 @@ class Form extends Component {
 		//username password validation
 		//if validated successfully, redirect to home page
 		//else popup message that wrong password
+		const errors =  this.validate();
+		console.log(errors);
+		this.setState({ errors });
+		if (errors) return;
 	};
 
 	routeChange = () => {
@@ -61,7 +66,7 @@ class Form extends Component {
 	}
 
 	renderInput(name, label, type) {
-		const { data } = this.state;
+		const { data , errors} = this.state;
 		return (
 			<Input
 				name={name}
@@ -69,6 +74,7 @@ class Form extends Component {
 				label={label}
 				type={type}
 				onChange={this.handleChange}
+				error={errors[name]}
 			/>
 		);
 	}

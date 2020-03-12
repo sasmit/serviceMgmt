@@ -12,7 +12,19 @@ class LoginForm extends Form {
 			password: '',
 			type: 0,
 			form: "login"
-		}
+		},
+		errors : {}
+	};
+
+	validate = () => {
+		const errors = {};
+		const { data } = this.state;
+		if(data.username.trim() === "")
+		errors.username = "Username is required";
+		if(data.password.trim() === "")
+		errors.password = "Password is required";
+
+		 return Object.keys(errors) === 0 ? null : errors;
 	};
 
 	render() {
