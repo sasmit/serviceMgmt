@@ -28,7 +28,7 @@ const API = {
         issue_save:"/issue/save",
         issue_vendorname_update:"/issue/VNupdate",
         get_all_issue:"/issue",
-        get_issue_by_status:"/issue/as/",
+        get_issue_by_status:"/issue/as/true",
         get_issue_by_trkingid:"/issue/:tid"
     }
 

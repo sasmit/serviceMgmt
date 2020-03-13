@@ -10,7 +10,9 @@ class OwnerHomePage extends Component {
 	state = {
 		serverData:{},
 		pageSize: 4,
-		currentPage: 1
+		currentPage: 1,
+		buttonStatus: "btn btn-warning",
+		buttonDisable: false
 	};
 
 	componentDidMount() {
@@ -34,9 +36,16 @@ class OwnerHomePage extends Component {
 		this.setState({ currentPage: page });
 	};
 
+	onStatusChange = () => {
+		console.log("onStatusChange");
+		//add query for changing status------> use below setState on success 
+		this.setState({buttonStatus : "btn btn-warning disable", buttonDisable: true});
+		//on failure show alert
+	};
+
 	render() {
 		const { length: count } = this.state.serverData;
-		const { currentPage, pageSize, serverData: allIssues } = this.state;
+		const { currentPage, pageSize, serverData: allIssues, buttonStatus, buttonDisable} = this.state;
 		if (count === 0) return <p>There is no issues in the database</p>;
 		const issues = paginate(allIssues, currentPage, pageSize);
 		return (<div>
@@ -45,8 +54,10 @@ class OwnerHomePage extends Component {
 			<ListGroup issues={issues}
 				cardColor="card bg-light mb-3" //add conditional color change
 				button={["INFO", "ASSIGN"]}
-				status="btn btn-danger"
+				status={buttonStatus}
 				link="/info"
+				onClick={this.onStatusChange}
+				isDisabled={buttonDisable}
 			/>
 			<Pagination
 				itemCount={count}
