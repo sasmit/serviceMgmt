@@ -64,6 +64,7 @@ class Form extends Component {
 		return (
 			<button 
 				className="btn btn-primary align-md-center"
+				onClick={this.routeChange}
 			>{label}
 			</button>
 		);
