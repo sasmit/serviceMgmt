@@ -1,7 +1,7 @@
 import React from 'react';
 
-const DropDown = ({options, value, error, onChange}) => {
-    return ( 
+const DropDown = ({ options, value, error, onChange }) => {
+    return (
         <div className="input-group mb-3">
             <div className="input-group-prepend">
                 <label className="input-group-text" htmlFor="inputGroupSelect01">Options</label>
@@ -11,16 +11,17 @@ const DropDown = ({options, value, error, onChange}) => {
                 id="inputGroupSelect01"
                 value={value}
                 onChange={onChange}
+                name="userType"
             >
                 {
                     options.map((option, index) => {
-                        return  <option key={index} value={index}>{option}</option>
+                        return <option key={index} value={index}>{option}</option>
                     })
                 }
             </select>
-            {error && <div className="alert alert-danger">{ error }</div>}
+            {error && <div className="alert alert-danger">{error}</div>}
         </div>
-     );
+    );
 }
- 
+
 export default DropDown;
