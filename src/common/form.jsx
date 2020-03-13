@@ -17,7 +17,11 @@ class Form extends Component {
 		//else popup message that wrong password
 		const errors =  this.validate();
 		this.setState({ errors: errors || {} });
-		if (errors) return;
+		if (Object.keys(errors).length !== 0) return;
+		else {
+			//server side validation
+			this.routeChange();
+		}
 	};
 
 	routeChange = () => {
@@ -35,8 +39,10 @@ class Form extends Component {
 				this.props.history.push(path);
 			}
 		} else if (data.form === "complaint") {
-			let path = '/userhome';
+			if (data.type !== 0) {
+				let path = '/userhome';
 				this.props.history.push(path);
+			}
 		}
 	};
 
@@ -58,7 +64,6 @@ class Form extends Component {
 		return (
 			<button 
 				className="btn btn-primary align-md-center"
-				onClick={this.routeChange}
 			>{label}
 			</button>
 		);
@@ -79,12 +84,13 @@ class Form extends Component {
 	}
 
 	renderDropDown(options) {
-		const { data } = this.state;
+		const { data,errors } = this.state;
 		return (
 			<DropDown
 				options={options}
 				value ={data.type}
 				onChange={this.handleSelect}
+				error={errors.type}
 			/>
 		);
 	}

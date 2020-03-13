@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DropDown = ({options, value, onChange}) => {
+const DropDown = ({options, value, error, onChange}) => {
     return ( 
         <div className="input-group mb-3">
             <div className="input-group-prepend">
@@ -18,6 +18,7 @@ const DropDown = ({options, value, onChange}) => {
                     })
                 }
             </select>
+            {error && <div className="alert alert-danger">{ error }</div>}
         </div>
      );
 }

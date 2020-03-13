@@ -16,6 +16,19 @@ class ComplaintForm extends Form {
 		errors: {}
 	};
 
+	validate = () => {
+		const errors = {};
+		const { data } = this.state;
+		if(data.title.trim() === "")
+		errors.title = "Title is required";
+		if(data.description.trim() === "")
+		errors.description = "Description is required";
+		if(data.type === 0)
+		errors.type = "Choose type";
+
+		 return Object.keys(errors) === 0 ? null : errors;
+	};
+
 	render() {
         const options = ["Choose...", "HardWare", "Software", "Other"];
 		return (

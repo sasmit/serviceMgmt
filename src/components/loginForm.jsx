@@ -23,6 +23,8 @@ class LoginForm extends Form {
 		errors.username = "Username is required";
 		if(data.password.trim() === "")
 		errors.password = "Password is required";
+		if(data.type === 0)
+		errors.type = "Choose type";
 
 		 return Object.keys(errors) === 0 ? null : errors;
 	};

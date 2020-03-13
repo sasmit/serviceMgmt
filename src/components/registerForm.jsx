@@ -25,6 +25,8 @@ class RegisterForm extends Form {
 		errors.password = "Password is required";
 		if(data.email.trim() === "")
 		errors.email = "Email is required";
+		if(data.type === 0)
+		errors.type = "Choose type";
 
 		 return Object.keys(errors) === 0 ? null : errors;
 	};
