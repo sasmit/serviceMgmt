@@ -1,6 +1,8 @@
 const SERVER_ADDRESS = {
-    LOCAL_URL: "http://10.12.137.16:8000",
-    API: {
+    LOCAL_URL: "http://10.12.137.16:8000"
+};
+
+const API = {
         USER_LOGIN: "/user/login",
         USER_REGISTRATION :"/user/save",
         USER_DETAILS :"/user",
@@ -29,6 +31,5 @@ const SERVER_ADDRESS = {
         get_issue_by_status:"/issue/as/:st",
         get_issue_by_trkingid:"/issue/:tid"
     }
-}
 
-export default SERVER_ADDRESS;
+export default {SERVER_ADDRESS, API};
