@@ -2,11 +2,63 @@ import React, { Component } from 'react';
 import Input from './input';
 import DropDown from './dropdown';
 import '../styles/login.css';
-
+import { SERVER_ADDRESS, API } from '../utils/constant.js';
 class Form extends Component {
 	state = {
 		data: {},
 		errors: {}
+	}
+	postLoginFormData = ({ password: { value: password }, username: { value: name }, userType: { value: user } }) => {
+		//console.log(SERVER_ADDRESS.LOCAL);
+		let data = { userName: name, password: password, userType: user };
+		fetch(SERVER_ADDRESS.LOCAL_URL + API.USER_LOGIN, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data)
+		}).then((response) => {
+			response.json().then((body) => {
+				console.log("Success Response " + body);
+			})
+		}, (error) => {
+			console.log("Error is" + error);
+		});
+	}
+
+	postRegisterFormData = ({ password: { value: password }, email: { value: email }, username: { value: name }, userType: { value: user } }) => {
+		//console.log(SERVER_ADDRESS.LOCAL);
+		let data = { userName: name, email: email, password: password, userType: user };
+		fetch(SERVER_ADDRESS.LOCAL_URL + API.issue_save, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data)
+		}).then((response) => {
+			response.json().then((body) => {
+				console.log("Success Response " + body);
+			})
+		}, (error) => {
+			console.log("Error is" + error);
+		});
+	}
+
+	postComplainFormData = ({ title: { value: title }, description: { value: description }, userType: { value: issueType } }) => {
+		let data = { title: title, description: description, password: password, issueType: issueType };
+		fetch(SERVER_ADDRESS.LOCAL_URL + API.USER_REGISTRATION, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data)
+		}).then((response) => {
+			response.json().then((body) => {
+				console.log("Success Response " + body);
+			})
+		}, (error) => {
+			console.log("Error is" + error);
+		});
 	}
 
 	handleSubmit = e => {
@@ -15,12 +67,23 @@ class Form extends Component {
 		//username password validation
 		//if validated successfully, redirect to home page
 		//else popup message that wrong password
-		const errors =  this.validate();
+		const errors = this.validate();
 		this.setState({ errors: errors || {} });
 		if (Object.keys(errors).length !== 0) return;
 		else {
 			//server side validation
-			this.routeChange();
+			switch (e.target.name) {
+				case "loginForm":
+					this.postLoginFormData(e.target);
+					break;
+				case "registerForm":
+					this.postRegisterFormData(e.taget);
+					break;
+				case "complainForm":
+					this.postComplainFormData(e.target);
+					break;
+			}
+			//this.routeChange();
 		}
 	};
 
@@ -48,30 +111,29 @@ class Form extends Component {
 
 	handleSelect = (e) => {
 		console.log("option selected");
-		const data = {...this.state.data};
+		const data = { ...this.state.data };
 		data.type = e.currentTarget.value;
-		this.setState({data});
+		this.setState({ data });
 		console.log(data);
 	};
 
 	handleChange = ({ currentTarget: input }) => {
-		const data = {...this.state.data};
-		data[input.name] =input.value;
-		this.setState({data});
+		const data = { ...this.state.data };
+		data[input.name] = input.value;
+		this.setState({ data });
 	};
 
 	renderButton = label => {
 		return (
-			<button 
+			<button
 				className="btn btn-primary align-md-center"
-				onClick={this.routeChange}
 			>{label}
 			</button>
 		);
 	};
 
 	renderInput(name, label, type) {
-		const { data , errors} = this.state;
+		const { data, errors } = this.state;
 		return (
 			<Input
 				name={name}
@@ -85,11 +147,11 @@ class Form extends Component {
 	}
 
 	renderDropDown(options) {
-		const { data,errors } = this.state;
+		const { data, errors } = this.state;
 		return (
 			<DropDown
 				options={options}
-				value ={data.type}
+				value={data.type}
 				onChange={this.handleSelect}
 				error={errors.type}
 			/>
