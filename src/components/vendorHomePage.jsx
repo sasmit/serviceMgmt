@@ -16,7 +16,7 @@ class VendorHomePage extends Component {
 	componentDidMount(){
 		//fetch original data from service
 		console.log("component did mount succesful");
-		fetch("http://10.12.131.32:3006", {
+		fetch("http://10.12.137.16:8000/issue/as/true", {
 			mode: 'no-cors'
 		})
 			.then(response => {
@@ -40,7 +40,11 @@ class VendorHomePage extends Component {
 		return (<div>
 			<Header text="Vendor Dashboard" image={vendorHomePage} />
 			<p>Showing {count} issues in the database</p>
-			<ListGroup issues={issues} />
+			<ListGroup issues={issues}
+				button={["INFO", "RESOLVE"]}
+				status="btn btn-success"
+				link=""
+			/>
 			<Pagination
 				itemCount={count}
 				pageSize={pageSize}

@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../common/card';
 
-const ListGroup = ({issues}) => {
+const ListGroup = ({issues, button, cardColor, status, link}) => {
 	return (
 		<table className="table">
 			<tbody>
@@ -12,8 +12,11 @@ const ListGroup = ({issues}) => {
 								<Card
 									cardTitle={issue.issue}
 									cardMessage={issue.description}
-									button="status"
-									link="/info"
+									cardColor={cardColor}
+									button1={button[0]}
+									button2={button[1]}
+									status={status}
+									link={link}
 								/>
 							</td>
 						</tr>

@@ -22,9 +22,14 @@ class OwnerHomePage extends Component {
 		if (count === 0) return <p>There is no issues in the database</p>;
 		const issues = paginate(allIssues, currentPage, pageSize );
        return (<div>
-			<Header text="Ownr Dashboard" image={OwnerHomeImg} />
+			<Header text="Owner Dashboard" image={OwnerHomeImg} />
 			<p>Showing {count} issues in the database</p>
-            <ListGroup issues={issues} />
+            <ListGroup issues={issues}
+				cardColor="card text-white bg-primary mb-3" //add conditional color change
+				button={["INFO", "ASSIGN"]}
+				status="btn btn-danger"
+				link="/info"
+			/>
 			<Pagination
 				itemCount={count}
 				pageSize={pageSize}
