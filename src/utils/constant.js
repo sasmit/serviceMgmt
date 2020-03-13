@@ -28,8 +28,8 @@ const API = {
         issue_save:"/issue/save",
         issue_vendorname_update:"/issue/VNupdate",
         get_all_issue:"/issue",
-        get_issue_by_status:"/issue/as/:st",
+        get_issue_by_status:"/issue/as/",
         get_issue_by_trkingid:"/issue/:tid"
     }
 
-export default {SERVER_ADDRESS, API};
+export {SERVER_ADDRESS, API};

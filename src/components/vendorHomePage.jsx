@@ -3,6 +3,7 @@ import Header from '../common/header';
 import Pagination from '../common/pagination';
 import ListGroup from '../common/listGroup';
 import { paginate } from '../utils/paginate';
+import { SERVER_ADDRESS, API } from '../utils/constant';
 import vendorHomePage from '../images/vendorHomePage.svg';
 
 class VendorHomePage extends Component {
@@ -14,7 +15,7 @@ class VendorHomePage extends Component {
 
 	componentDidMount() {
 		//fetch original data from service
-		fetch("http://10.12.137.16:8000/issue/as/true/",
+		fetch(SERVER_ADDRESS.LOCAL_URL + API.get_issue_by_status,
 			{
 				method: 'get'
 			}).then((response) => {

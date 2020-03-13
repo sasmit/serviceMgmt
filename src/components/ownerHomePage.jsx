@@ -3,6 +3,7 @@ import Header from '../common/header';
 import Pagination from '../common/pagination';
 import ListGroup from '../common/listGroup';
 import { paginate } from '../utils/paginate';
+import { SERVER_ADDRESS, API } from '../utils/constant';
 import OwnerHomeImg from '../images/ownerHomePage.svg';
 
 class OwnerHomePage extends Component {
@@ -14,7 +15,7 @@ class OwnerHomePage extends Component {
 
 	componentDidMount() {
 		//fetch original data from service
-		fetch("http://10.12.137.16:8000/issue/as/true/",
+		fetch(SERVER_ADDRESS.LOCAL_URL + API.get_all_issue,
 			{
 				method: 'get'
 			}).then((response) => {

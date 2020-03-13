@@ -3,6 +3,7 @@ import Header from '../common/header';
 import Pagination from '../common/pagination';
 import ListGroup from '../common/listGroup';
 import { paginate } from '../utils/paginate';
+import { SERVER_ADDRESS, API } from '../utils/constant';
 import userTracking from '../images/trackingPage.svg';
 
 class UserTracking extends Component {
@@ -14,7 +15,7 @@ class UserTracking extends Component {
 
 	componentDidMount() {
 		//fetch original data from service
-		fetch("http://10.12.137.16:8000/issue/as/true/",
+		fetch(SERVER_ADDRESS.LOCAL_URL + API.issue_save,
 			{
 				method: 'get'
 			}).then((response) => {
