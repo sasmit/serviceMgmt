@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const Card = ({cardTitle, cardMessage, cardColor, button1, button2, link, status}) => {
-	console.log(button1);
 	return ( 
 		<div className={cardColor}>
 				{/* <img className="card-img-top" src={userHomePage} alt="" /> */}

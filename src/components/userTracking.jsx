@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Header from '../common/header';
-import { getIssue } from "../services/fakeIssueList";
 import Pagination from '../common/pagination';
 import ListGroup from '../common/listGroup';
 import { paginate } from '../utils/paginate';
@@ -8,17 +7,35 @@ import userTracking from '../images/trackingPage.svg';
 
 class UserTracking extends Component {
 	state = {
-		issues: getIssue(),
+		serverData: {},
 		pageSize: 4,
 		currentPage: 1
 	};
 
+	componentDidMount() {
+		//fetch original data from service
+		fetch("http://10.12.137.16:8000/issue/as/true/",
+			{
+				method: 'get'
+			}).then((response) => {
+				response.json().then((body) => {
+					this.setState({ serverData: body })
+					console.log(body);
+				});
+			}, (error) => {
+				if (error) {
+					console.log(error);
+				}
+			});
+	}
+
 	handlePageChange = page => {
 		this.setState({ currentPage: page });
 	};
+
 	render() {
-		const { length: count } = this.state.issues;
-		const { currentPage, pageSize, issues: allIssues } = this.state;
+		const { length: count } = this.state.serverData;
+		const { currentPage, pageSize, serverData: allIssues } = this.state;
 		if (count === 0) return <p>There is no issues in the database</p>;
 		const issues = paginate(allIssues, currentPage, pageSize);
 		return (

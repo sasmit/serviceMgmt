@@ -13,7 +13,9 @@ class UserHomePage extends Component {
 					<Card 
 						cardTitle="Welcome,"
 						cardMessage="Do you have a Consumer Grievance? Please Raise your complaint by clicking create button."
-						button="CREATE"
+						cardColor="card"
+						button1="CREATE"
+						status="d-none"
 						link="/complaint"
 					/>
 				</div>
@@ -21,7 +23,9 @@ class UserHomePage extends Component {
 					<Card 
 						cardTitle="Hello,"
 						cardMessage="Want to know the status of your complained? click track button."
-						button="TRACK"
+						cardColor="card"
+						button1="TRACK"
+						status="d-none"
 						link="/usertracking"
 					/>
 				</div>
