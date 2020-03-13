@@ -5,25 +5,30 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import OwnerHomePage from './ownerHomePage';
+import Card from '../common/card';
+import Header from '../common/header';
+import ComplaintForm from './complaintForm';
+import UserTracking from './userTracking';
+import ownerHomeImg from '../images/ownerHomePage.svg'
 
 const routes = [
     {
         path: "/ownerhome",
         exact: true,
         sidebar: () => <h1> </h1>,
-        main: () => <OwnerHomePage ></OwnerHomePage>
+        main: () => <ComplaintForm />
     },
     {
         path: "/track",
         sidebar: () => <h1></h1>,
-        main: () => <h2> Tracking page</h2>
+        main: () => <UserTracking />
     }
 ];
 
 export default function sidebar() {
     return (
         <Router>
+            <Header text="Owner Dashboard" image={ownerHomeImg}/>
             <div style={{ display: "flex" }}>
                 <div
                     style={{
@@ -32,14 +37,20 @@ export default function sidebar() {
                         background: "#f0f0f0"
                     }}
                 >
-                    <ul style={{ listStyleType: "none", padding: 0 }}>
-                        <li>
-                            <Link to="/ownerhome"> Issues</Link>
-                        </li>
-                        <li>
-                            <Link to="/track">track</Link>
-                        </li>
-                    </ul>
+                    <div>
+                            <Card
+                                cardTitle="Welcome,"
+                                cardMessage="Do you have a Consumer Grievance? Please Raise your complaint by clicking create button."
+                                button="CREATE"
+                                link="/complaint"
+                            />
+                            <Card
+                                cardTitle="Hello,"
+                                cardMessage="Want to know the status of your complained? click track button."
+                                button="TRACK"
+                                link="/usertracking"
+                            />
+                    </div>
 
                     <Switch>
                         {routes.map((route, index) => (

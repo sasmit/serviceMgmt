@@ -5,9 +5,9 @@ import RegisterForm from './components/registerForm';
 import UserHomePage from './components/userHomePage';
 import VendorHomePage from './components/vendorHomePage';
 import OwnerHomePage from './components/ownerHomePage';
-import ComplianForm from './components/complaintForm';
+import ComplaintForm from './components/complaintForm';
 import UserTracking from './components/userTracking';
-import sideBar from './components/sideBar';
+// import sideBar from './components/sideBar';
 import './App.css';
 
 function App() {
@@ -16,9 +16,9 @@ function App() {
 			<main className="container">
 				<Switch>
 					<Route path='/usertracking' component={UserTracking} />
-					<Route path='/ownerhome' component={sideBar} />
+					<Route path='/ownerhome' component={OwnerHomePage} />
 					<Route path='/vendorhome' component={VendorHomePage} />
-					<Route path='/complaint' component={ComplianForm} />
+					<Route path='/complaint' component={ComplaintForm} />
 					<Route path='/userhome' component={UserHomePage} />
 					<Route path='/register' component={RegisterForm} />
 					<Route path='/login' component={LoginForm} />

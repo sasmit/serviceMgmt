@@ -3,8 +3,8 @@ import Header from '../common/header';
 import Pagination from '../common/pagination';
 import ListGroup from '../common/listGroup';
 import { paginate } from '../utils/paginate';
-import vendorHomePage from '../images/vendorHomePage.svg';
 import { getIssue } from "../services/fakeIssueList";
+import vendorHomePage from '../images/vendorHomePage.svg';
 
 class VendorHomePage extends Component {
 	state = {
@@ -37,20 +37,16 @@ class VendorHomePage extends Component {
 		if (count === 0) return <p>There is no issues in the database</p>;
 		const issues = paginate(allIssues, currentPage, pageSize );
 
-	if (count === 0) return <p>There is no movies in the database</p>;
 		return (<div>
 			<Header text="Vendor Dashboard" image={vendorHomePage} />
 			<p>Showing {count} issues in the database</p>
-				<ListGroup
-					issues={issues}
-				/>
+			<ListGroup issues={issues} />
 			<Pagination
 				itemCount={count}
 				pageSize={pageSize}
 				currentPage={currentPage}
 				onPageChange={this.handlePageChange}
-			/>
-			
+			/>	
 		</div>);
 	}
 }
