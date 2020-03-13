@@ -7,7 +7,7 @@ import VendorHomePage from './components/vendorHomePage';
 import OwnerHomePage from './components/ownerHomePage';
 import ComplaintForm from './components/complaintForm';
 import UserTracking from './components/userTracking';
-// import sideBar from './components/sideBar';
+import Information from './components/informationPage';
 import './App.css';
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
 		<React.Fragment>
 			<main className="container">
 				<Switch>
+					<Route path='/info' component={Information}/>
 					<Route path='/usertracking' component={UserTracking} />
 					<Route path='/ownerhome' component={OwnerHomePage} />
 					<Route path='/vendorhome' component={VendorHomePage} />
