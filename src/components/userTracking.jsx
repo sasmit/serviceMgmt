@@ -15,7 +15,7 @@ class UserTracking extends Component {
 
 	componentDidMount() {
 		//fetch original data from service
-		fetch(SERVER_ADDRESS.LOCAL_URL + API.issue_save,
+		fetch(SERVER_ADDRESS.LOCAL_URL + API.get_all_issue,
 			{
 				method: 'get'
 			}).then((response) => {
@@ -43,7 +43,13 @@ class UserTracking extends Component {
 			<div>
 				<Header text="Track your issues here" image={userTracking} />
 				<p>Showing {count} issues in the database</p>
-				<ListGroup issues={issues} />
+				<ListGroup 
+					issues={issues}
+					cardColor="card"
+					button={["CKECK STATUS"]}
+					status="d-none"
+					link="/info"
+				/>
 				<Pagination
 					itemCount={count}
 					pageSize={pageSize}
