@@ -1,5 +1,5 @@
 const SERVER_ADDRESS = {
-    LOCAL_URL: "http://10.12.137.16",
+    LOCAL_URL: "http://10.12.137.16:8000",
     API: {
         USER_LOGIN: "/user/login",
         USER_REGISTRATION :"/user/save",
