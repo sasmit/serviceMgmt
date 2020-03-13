@@ -20,6 +20,7 @@ class Form extends Component {
 		}).then((response) => {
 			response.json().then((body) => {
 				console.log("Success Response " + body);
+				this.routeChange();
 			})
 		}, (error) => {
 			console.log("Error is" + error);
@@ -38,6 +39,7 @@ class Form extends Component {
 		}).then((response) => {
 			response.json().then((body) => {
 				console.log("Success Response " + body);
+				this.routeChange();
 			})
 		}, (error) => {
 			console.log("Error is" + error);
@@ -45,7 +47,7 @@ class Form extends Component {
 	}
 
 	postComplainFormData = ({ title: { value: title }, description: { value: description }, userType: { value: issueType } }) => {
-		let data = { title: title, description: description, password: password, issueType: issueType };
+		let data = { title: title, description: description, issueType: issueType };
 		fetch(SERVER_ADDRESS.LOCAL_URL + API.USER_REGISTRATION, {
 			method: 'POST',
 			headers: {
@@ -55,6 +57,7 @@ class Form extends Component {
 		}).then((response) => {
 			response.json().then((body) => {
 				console.log("Success Response " + body);
+				this.routeChange();
 			})
 		}, (error) => {
 			console.log("Error is" + error);
@@ -83,7 +86,6 @@ class Form extends Component {
 					this.postComplainFormData(e.target);
 					break;
 			}
-			//this.routeChange();
 		}
 	};
 
