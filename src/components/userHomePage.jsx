@@ -14,7 +14,7 @@ class UserHomePage extends Component {
 						cardTitle="Welcome,"
 						cardMessage="Do you have a Consumer Grievance? Please Raise your complaint by clicking create button."
 						cardColor="card"
-						button={["CREATE"]}
+						button1={["CREATE"]}
 						status="d-none"
 						link="/complaint"
 					/>

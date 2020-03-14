@@ -34,6 +34,10 @@ class UserTracking extends Component {
 		this.setState({ currentPage: page });
 	};
 
+	handleInfo = () => {
+		console.log(this.state.serverData);
+	};
+
 	render() {
 		const { length: count } = this.state.serverData;
 		const { currentPage, pageSize, serverData: allIssues } = this.state;
@@ -46,9 +50,10 @@ class UserTracking extends Component {
 				<ListGroup 
 					issues={issues}
 					cardColor="card"
-					button={["CKECK STATUS"]}
+					button={["CHECK STATUS"]}
+					fetchInfo={this.handleInfo}
 					status="d-none"
-					link="/info"
+					link={`/info?trackId=${this.state.serverData[0].data["trackId"]}`}
 				/>
 				<Pagination
 					itemCount={count}

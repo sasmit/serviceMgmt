@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../common/card';
 
-const ListGroup = ({issues, button, cardColor, status, link, onClick, isDisabled}) => {
+const ListGroup = ({issues, button, cardColor, status, link, onClick, fetchInfo, isDisabled}) => {
 	return (
 		<table className="table">
 			<tbody>
@@ -18,6 +18,7 @@ const ListGroup = ({issues, button, cardColor, status, link, onClick, isDisabled
 									status={status}
 									link={link}
 									onClick={onClick}
+									fetchInfo={fetchInfo}
 									isDisabled={isDisabled}
 								/>
 							</td>
